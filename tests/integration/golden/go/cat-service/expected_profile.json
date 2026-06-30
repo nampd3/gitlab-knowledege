@@ -1,0 +1,164 @@
+{
+  "gitlab_project_id": 1,
+  "full_path": "samples/cat-service",
+  "analysis_branch": "main",
+  "analysis_branch_commit_sha": "87f7f8a5dd2a7371597b1b75173f72a84752b0e7",
+  "produced_at": "2024-01-01T00:00:00Z",
+  "purpose_summary": "Cron-based repayment processing service. Captures pending repayment records from `APP_DOMINO.REP_PAYMENTS`, sends them to W4 Payment Service (XML/HTTP with Basic Auth), and syncs final statuses back to the main table.",
+  "purpose_summary_reason": null,
+  "abstract_inputs": [
+    {
+      "category": "http_request",
+      "description": "HTTP ANY /healthz via mux.Handle() at cmd/main.go:146"
+    },
+    {
+      "category": "http_request",
+      "description": "HTTP ANY /readyz via mux.Handle() at cmd/main.go:147"
+    },
+    {
+      "category": "http_request",
+      "description": "HTTP ANY /startupz via mux.Handle() at cmd/main.go:148"
+    },
+    {
+      "category": "http_request",
+      "description": "HTTP ANY /debug/pprof/ via mux.HandleFunc() at cmd/main.go:151"
+    },
+    {
+      "category": "http_request",
+      "description": "HTTP ANY /debug/pprof/cmdline via mux.HandleFunc() at cmd/main.go:152"
+    },
+    {
+      "category": "http_request",
+      "description": "HTTP ANY /debug/pprof/profile via mux.HandleFunc() at cmd/main.go:153"
+    },
+    {
+      "category": "http_request",
+      "description": "HTTP ANY /debug/pprof/symbol via mux.HandleFunc() at cmd/main.go:154"
+    },
+    {
+      "category": "http_request",
+      "description": "HTTP ANY /debug/pprof/trace via mux.HandleFunc() at cmd/main.go:155"
+    },
+    {
+      "category": "http_request",
+      "description": "HTTP ANY /trigger via mux.HandleFunc() at cmd/main.go:158"
+    },
+    {
+      "category": "scheduled_event",
+      "description": "scheduled (time, NewTicker) <dynamic> via time.NewTicker() at internal/usecase/cat_service_usecase.go:223"
+    }
+  ],
+  "abstract_outputs": [
+    {
+      "category": "http_response",
+      "description": "HTTP ANY response for /healthz via mux.Handle() at cmd/main.go:146"
+    },
+    {
+      "category": "http_response",
+      "description": "HTTP ANY response for /readyz via mux.Handle() at cmd/main.go:147"
+    },
+    {
+      "category": "http_response",
+      "description": "HTTP ANY response for /startupz via mux.Handle() at cmd/main.go:148"
+    },
+    {
+      "category": "http_response",
+      "description": "HTTP ANY response for /debug/pprof/ via mux.HandleFunc() at cmd/main.go:151"
+    },
+    {
+      "category": "http_response",
+      "description": "HTTP ANY response for /debug/pprof/cmdline via mux.HandleFunc() at cmd/main.go:152"
+    },
+    {
+      "category": "http_response",
+      "description": "HTTP ANY response for /debug/pprof/profile via mux.HandleFunc() at cmd/main.go:153"
+    },
+    {
+      "category": "http_response",
+      "description": "HTTP ANY response for /debug/pprof/symbol via mux.HandleFunc() at cmd/main.go:154"
+    },
+    {
+      "category": "http_response",
+      "description": "HTTP ANY response for /debug/pprof/trace via mux.HandleFunc() at cmd/main.go:155"
+    },
+    {
+      "category": "http_response",
+      "description": "HTTP ANY response for /trigger via mux.HandleFunc() at cmd/main.go:158"
+    }
+  ],
+  "external_service_dependencies": [
+    {
+      "name": "apigw-uat-internal.fecredit.cloud",
+      "kind": "http_api",
+      "source_locations": [
+        {
+          "path": "config/config.go",
+          "line": 58
+        }
+      ]
+    }
+  ],
+  "database_table_dependencies": [
+    {
+      "table_name": "APP_ESB_MICROSVC.SP_CAT_CAPTURE_REPAYMENTS",
+      "access_mode": "unknown",
+      "source_locations": [
+        {
+          "path": "internal/repository/cat_service_repo.go",
+          "line": null
+        }
+      ]
+    },
+    {
+      "table_name": "APP_ESB_MICROSVC.SP_CAT_EXTEND_RELEASE",
+      "access_mode": "unknown",
+      "source_locations": [
+        {
+          "path": "internal/repository/cat_service_repo.go",
+          "line": null
+        }
+      ]
+    },
+    {
+      "table_name": "APP_ESB_MICROSVC.SP_CAT_SYNC_STATUS_TO_MAIN",
+      "access_mode": "unknown",
+      "source_locations": [
+        {
+          "path": "internal/repository/cat_service_repo.go",
+          "line": null
+        }
+      ]
+    },
+    {
+      "table_name": "APP_ESB_MICROSVC.SP_CAT_UPDATE_STATUS_FAIL",
+      "access_mode": "unknown",
+      "source_locations": [
+        {
+          "path": "internal/repository/cat_service_repo.go",
+          "line": null
+        }
+      ]
+    },
+    {
+      "table_name": "APP_ESB_MICROSVC.SP_CAT_UPDATE_STATUS_RETRY",
+      "access_mode": "unknown",
+      "source_locations": [
+        {
+          "path": "internal/repository/cat_service_repo.go",
+          "line": null
+        }
+      ]
+    },
+    {
+      "table_name": "APP_ESB_MICROSVC.SP_CAT_UPDATE_STATUS_SENT",
+      "access_mode": "unknown",
+      "source_locations": [
+        {
+          "path": "internal/repository/cat_service_repo.go",
+          "line": null
+        }
+      ]
+    }
+  ],
+  "degraded_sections": []
+}

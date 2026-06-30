@@ -1,0 +1,134 @@
+{
+  "gitlab_project_id": 1,
+  "full_path": "samples/aps_los_vtiger",
+  "analysis_branch": "main",
+  "analysis_branch_commit_sha": "9cb3f78db4b299b03af7dcbe312f2d2df907217b",
+  "produced_at": "2024-01-01T00:00:00Z",
+  "purpose_summary": "ActiveMQ subscriber service that listens to PEGA queues, filters and transforms messages, then forwards them via HTTP to VTiger/CRM endpoints.",
+  "purpose_summary_reason": null,
+  "abstract_inputs": [
+    {
+      "category": "http_request",
+      "description": "HTTP ANY /healthz via mux.Handle() at cmd/main.go:63"
+    },
+    {
+      "category": "http_request",
+      "description": "HTTP ANY /readyz via mux.Handle() at cmd/main.go:64"
+    },
+    {
+      "category": "http_request",
+      "description": "HTTP ANY /startupz via mux.Handle() at cmd/main.go:65"
+    },
+    {
+      "category": "http_request",
+      "description": "HTTP ANY /debug/pprof/ via mux.HandleFunc() at cmd/main.go:68"
+    },
+    {
+      "category": "http_request",
+      "description": "HTTP ANY /debug/pprof/cmdline via mux.HandleFunc() at cmd/main.go:69"
+    },
+    {
+      "category": "http_request",
+      "description": "HTTP ANY /debug/pprof/profile via mux.HandleFunc() at cmd/main.go:70"
+    },
+    {
+      "category": "http_request",
+      "description": "HTTP ANY /debug/pprof/symbol via mux.HandleFunc() at cmd/main.go:71"
+    },
+    {
+      "category": "http_request",
+      "description": "HTTP ANY /debug/pprof/trace via mux.HandleFunc() at cmd/main.go:72"
+    }
+  ],
+  "abstract_outputs": [
+    {
+      "category": "http_response",
+      "description": "HTTP ANY response for /healthz via mux.Handle() at cmd/main.go:63"
+    },
+    {
+      "category": "http_response",
+      "description": "HTTP ANY response for /readyz via mux.Handle() at cmd/main.go:64"
+    },
+    {
+      "category": "http_response",
+      "description": "HTTP ANY response for /startupz via mux.Handle() at cmd/main.go:65"
+    },
+    {
+      "category": "http_response",
+      "description": "HTTP ANY response for /debug/pprof/ via mux.HandleFunc() at cmd/main.go:68"
+    },
+    {
+      "category": "http_response",
+      "description": "HTTP ANY response for /debug/pprof/cmdline via mux.HandleFunc() at cmd/main.go:69"
+    },
+    {
+      "category": "http_response",
+      "description": "HTTP ANY response for /debug/pprof/profile via mux.HandleFunc() at cmd/main.go:70"
+    },
+    {
+      "category": "http_response",
+      "description": "HTTP ANY response for /debug/pprof/symbol via mux.HandleFunc() at cmd/main.go:71"
+    },
+    {
+      "category": "http_response",
+      "description": "HTTP ANY response for /debug/pprof/trace via mux.HandleFunc() at cmd/main.go:72"
+    }
+  ],
+  "external_service_dependencies": [
+    {
+      "name": "fecredit-uat.od1.vtiger.ws",
+      "kind": "http_api",
+      "source_locations": [
+        {
+          "path": "config/config.go",
+          "line": 92
+        },
+        {
+          "path": "config/config.go",
+          "line": 101
+        },
+        {
+          "path": "config/config.go",
+          "line": 104
+        }
+      ]
+    },
+    {
+      "name": "fecrdt-crm-stg1-internal.pegacloud.io",
+      "kind": "http_api",
+      "source_locations": [
+        {
+          "path": "config/config.go",
+          "line": 95
+        },
+        {
+          "path": "config/config.go",
+          "line": 98
+        }
+      ]
+    },
+    {
+      "name": "activemq",
+      "kind": "message_broker",
+      "source_locations": [
+        {
+          "path": "internal/helper/helper.go",
+          "line": null
+        }
+      ]
+    }
+  ],
+  "database_table_dependencies": [
+    {
+      "table_name": "APP_DOMINO.IIB_POS_SUBSCRIBER_LOG",
+      "access_mode": "write",
+      "source_locations": [
+        {
+          "path": "internal/repository/aps_los_vtiger_repo.go",
+          "line": null
+        }
+      ]
+    }
+  ],
+  "degraded_sections": []
+}

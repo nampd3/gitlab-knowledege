@@ -1,0 +1,168 @@
+{
+  "gitlab_project_id": 1,
+  "full_path": "samples/repayment_service",
+  "analysis_branch": "main",
+  "analysis_branch_commit_sha": "1c61c45b38ab0b964087fb4e956fbe8cda4fcbd8",
+  "produced_at": "2024-01-01T00:00:00Z",
+  "purpose_summary": "A Go-based loan repayment microservice (gRPC + gRPC-Gateway) in the FE Credit ESB ecosystem. It exposes contract inquiry, early-loan inquiry, and payment APIs in two versions:",
+  "purpose_summary_reason": null,
+  "abstract_inputs": [
+    {
+      "category": "http_request",
+      "description": "HTTP request <dynamic at pb/repayment_service_apis.pb.gw.go:179 on mux>"
+    },
+    {
+      "category": "http_request",
+      "description": "HTTP request <dynamic at pb/repayment_service_apis.pb.gw.go:199 on mux>"
+    },
+    {
+      "category": "http_request",
+      "description": "HTTP request <dynamic at pb/repayment_service_apis.pb.gw.go:219 on mux>"
+    },
+    {
+      "category": "http_request",
+      "description": "HTTP request <dynamic at pb/repayment_service_apis.pb.gw.go:249 on mux>"
+    },
+    {
+      "category": "http_request",
+      "description": "HTTP request <dynamic at pb/repayment_service_apis.pb.gw.go:269 on mux>"
+    },
+    {
+      "category": "http_request",
+      "description": "HTTP request <dynamic at pb/repayment_service_apis.pb.gw.go:329 on mux>"
+    },
+    {
+      "category": "http_request",
+      "description": "HTTP request <dynamic at pb/repayment_service_apis.pb.gw.go:346 on mux>"
+    },
+    {
+      "category": "http_request",
+      "description": "HTTP request <dynamic at pb/repayment_service_apis.pb.gw.go:363 on mux>"
+    },
+    {
+      "category": "http_request",
+      "description": "HTTP request <dynamic at pb/repayment_service_apis.pb.gw.go:431 on mux>"
+    },
+    {
+      "category": "http_request",
+      "description": "HTTP request <dynamic at pb/repayment_service_apis.pb.gw.go:448 on mux>"
+    }
+  ],
+  "abstract_outputs": [
+    {
+      "category": "http_response",
+      "description": "HTTP response <dynamic at pb/repayment_service_apis.pb.gw.go:179 on mux>"
+    },
+    {
+      "category": "http_response",
+      "description": "HTTP response <dynamic at pb/repayment_service_apis.pb.gw.go:199 on mux>"
+    },
+    {
+      "category": "http_response",
+      "description": "HTTP response <dynamic at pb/repayment_service_apis.pb.gw.go:219 on mux>"
+    },
+    {
+      "category": "http_response",
+      "description": "HTTP response <dynamic at pb/repayment_service_apis.pb.gw.go:249 on mux>"
+    },
+    {
+      "category": "http_response",
+      "description": "HTTP response <dynamic at pb/repayment_service_apis.pb.gw.go:269 on mux>"
+    },
+    {
+      "category": "http_response",
+      "description": "HTTP response <dynamic at pb/repayment_service_apis.pb.gw.go:329 on mux>"
+    },
+    {
+      "category": "http_response",
+      "description": "HTTP response <dynamic at pb/repayment_service_apis.pb.gw.go:346 on mux>"
+    },
+    {
+      "category": "http_response",
+      "description": "HTTP response <dynamic at pb/repayment_service_apis.pb.gw.go:363 on mux>"
+    },
+    {
+      "category": "http_response",
+      "description": "HTTP response <dynamic at pb/repayment_service_apis.pb.gw.go:431 on mux>"
+    },
+    {
+      "category": "http_response",
+      "description": "HTTP response <dynamic at pb/repayment_service_apis.pb.gw.go:448 on mux>"
+    }
+  ],
+  "external_service_dependencies": [
+    {
+      "name": "service",
+      "kind": "http_api",
+      "source_locations": [
+        {
+          "path": "config/config.go",
+          "line": 70
+        }
+      ]
+    },
+    {
+      "name": "w4_repayment_service",
+      "kind": "other",
+      "source_locations": [
+        {
+          "path": "internal/adapter/w4_repayment_service_adapter.go",
+          "line": null
+        }
+      ]
+    }
+  ],
+  "database_table_dependencies": [
+    {
+      "table_name": "GETEARLYLOANS_REP",
+      "access_mode": "unknown",
+      "source_locations": [
+        {
+          "path": "internal/repository/repaymentservice_repo.go",
+          "line": null
+        }
+      ]
+    },
+    {
+      "table_name": "IIB_PAYMENT_CONFIRMED",
+      "access_mode": "read_write",
+      "source_locations": [
+        {
+          "path": "internal/repository/repaymentservice_repo.go",
+          "line": null
+        }
+      ]
+    },
+    {
+      "table_name": "IIB_PAYMENT_TRANSACTION_LOG",
+      "access_mode": "write",
+      "source_locations": [
+        {
+          "path": "internal/repository/repaymentservice_repo.go",
+          "line": null
+        }
+      ]
+    },
+    {
+      "table_name": "REP_PAYMENTS",
+      "access_mode": "read",
+      "source_locations": [
+        {
+          "path": "internal/repository/repaymentservice_repo.go",
+          "line": null
+        }
+      ]
+    },
+    {
+      "table_name": "TBL_WS_PAYMENTINFO",
+      "access_mode": "read",
+      "source_locations": [
+        {
+          "path": "internal/repository/repaymentservice_repo.go",
+          "line": null
+        }
+      ]
+    }
+  ],
+  "degraded_sections": []
+}

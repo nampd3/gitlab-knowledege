@@ -1,0 +1,39 @@
+{
+  "gitlab_project_id": 1,
+  "full_path": "samples/fec_pool_service",
+  "analysis_branch": "main",
+  "analysis_branch_commit_sha": "f56fc107669276b20621c86e66d1feebe583f76a",
+  "produced_at": "2024-01-01T00:00:00Z",
+  "purpose_summary": "Service use to create a connection pool to database and execute query with input parameters and return result as string json. Service work as system api in Led API protocol",
+  "purpose_summary_reason": null,
+  "abstract_inputs": [
+    {
+      "category": "http_request",
+      "description": "HTTP request <dynamic at pb/pool_apis.pb.gw.go:71 on mux>"
+    },
+    {
+      "category": "http_request",
+      "description": "HTTP request <dynamic at pb/pool_apis.pb.gw.go:131 on mux>"
+    }
+  ],
+  "abstract_outputs": [
+    {
+      "category": "http_response",
+      "description": "HTTP response <dynamic at pb/pool_apis.pb.gw.go:71 on mux>"
+    },
+    {
+      "category": "http_response",
+      "description": "HTTP response <dynamic at pb/pool_apis.pb.gw.go:131 on mux>"
+    }
+  ],
+  "external_service_dependencies": [],
+  "database_table_dependencies": [],
+  "degraded_sections": [
+    "abstract_io: skipped internal/util/query_validator.go (parse error in func decl: expected function name)",
+    "abstract_io: skipped internal/util/query_validator.go (parse error in func decl: expected function name)",
+    "external_services: skipped internal/util/query_validator.go (parse error in func decl: expected function name)",
+    "external_services: skipped internal/util/query_validator.go (parse error in func decl: expected function name)",
+    "database_tables: skipped internal/util/query_validator.go (parse error in func decl: expected function name)",
+    "database_tables: skipped internal/util/query_validator.go (parse error in func decl: expected function name)"
+  ]
+}
